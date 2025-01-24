@@ -80,5 +80,19 @@ namespace CollegeCourses.Controllers
 			ViewBag.Courses = await _context.Courses.ToListAsync();
 			return View("Index", students);
 		}
+		[HttpGet]
+		public async Task<IActionResult> DeleteStudent(int id)
+		{
+			return View(await _context.Students.FindAsync(id));
+		}
+		[HttpPost]
+		public async Task<IActionResult> DeleteStudent(Student s)
+		{
+			_context.Students.Remove(s);
+			await _context.SaveChangesAsync();
+			List<Student> students = await _context.Students.ToListAsync();
+			ViewBag.Courses = await _context.Courses.ToListAsync();
+			return View("Index", students);
+		}
 	}
 }

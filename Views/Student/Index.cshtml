@@ -38,6 +38,7 @@
             <th>Name</th>
             <th>Financial Aid</th>
             <th>Enroll In Class</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -48,6 +49,9 @@
                 <td>@student.FinancialAidStatus</td>
                 <td>
                     <a asp-action="ChangeEnrollment" asp-controller="Student" class="btn btn-info" asp-route-id="@student.StudentId">Edit Enrolled Classes</a>
+                </td>
+                <td>
+                    <a asp-action="DeleteStudent" asp-controller="Student" class="btn btn-danger" asp-route-id="@student.StudentId">Delete Student</a>
                 </td>
             </tr>
         }
